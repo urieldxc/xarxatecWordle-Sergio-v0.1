@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="arrayPalabras.js" type="module"></script>
+    <title>Xarxatec Wordle</title>
+    </head>
+
+    <body>
+        <div id="totalContainer" class="w-1/2 max-w-lg sm:w-full h-screen mx-auto flex flex-col justify-between">
+
+            <header>
+                <nav class="barraNav p-2 flex justify-between items-center border-solid border-b-2 border-gray-200">                
+                    <div id="divModal" class="divNav ">
+                        
+
+                        <div class="wrapper">
+                            <a  href="#modal">
+                                <button href="/" class="navInfo" data-modal-toggle="default-modal">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                                    <path fill="gray" d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"></path>
+                                </svg>
+                            </button>
+                        </a>
+                        </div>
+                        
+                        <div id="modal" class="modal bg-gray-200 hidden absolute h-fit rounded p-6 w-3/6 max-w-lg inset-y-32 -ml-2 shadow-md shadow-gray-400 ">
+                            <div class="modal__content">
+                                <h1 class="text-xl font-semibold pb-4">XarxatecWordle</h1>
+                        
+                                <p class="pb-2">
+                                    Clon del juego "Wordle" como trabajo para clase, utilizando únicamente HTML, Tailwind y Javascript Vanilla.
+                                    
+                                </p>
+                        
+                                <p class="pb-2 font-semibold">Instrucciones:</p>
+                                <p class="pb-2">Tienes que adivinar la palabra de 5 letras que el ordenador ha pensado, tendrás que introducir cada letra con el teclado 
+                                    virtual o con el físico. El color <span class="text-green-700 underline underline-offset-2">verde</span> significa que la letra que has pensado se encuentra en la palabra del ordenador y en
+                                    el mismo índice. Si sale de color <span class="text-yellow-500 underline underline-offset-2">amarillo</span>, significa que la letra está, sin embargo se encuentra en otro índice. Por último si
+                                    el color es <span class="text-gray-500 underline underline-offset-2">gris</span> , significa que esa letra no se encuentra en la palabra. Tienes un máximo de 6 intentos. Para enviar las letras
+                                    elegidas, utiliza el enter del teclado virtual o físico.
+                                </p>
+                                <div class="modal__footer pt-4 text-right">
+                                    Trabajo de Xarxatec Activa, por <a href="https://github.com/urieldxc" target="_blank" class="font-semibold text-blue-900">Sergio Tomás</a>
+                                </div>
+                        
+                                <a href="#" class="modal__close absolute top-2 right-4">&times;</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+    
+                    <div class="logo">
+                        <img src="logo.png" alt="Logo de XarxatecWordle">
+                    </div>
+    
+                    <div class="flex">
+                        <a id="svgRecargar"href="/" class="navInfo">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="gray">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                              </svg>
+                        </a>
+                    </div>
+                </nav>
+            </header>
+    
+            <section id="tablero" class="mx-auto w-4/6 grid gap-x-0 gap-y-1 grid-cols-5 grid-rows-6"></section>
+    
+            <section class="teclado pb-6 grid gap-y-1">
+
+                <div id="primeraLinea" class="flex justify-between">
+                    <button id="letra-q" class="botonLetras">Q</button>
+                    <button id="letra-w" class="botonLetras">W</button>
+                    <button id="letra-e" class="botonLetras">E</button>
+                    <button id="letra-r" class="botonLetras">R</button>
+                    <button id="letra-t" class="botonLetras">T</button>
+                    <button id="letra-y" class="botonLetras">Y</button>
+                    <button id="letra-u" class="botonLetras">U</button>
+                    <button id="letra-i" class="botonLetras">I</button>
+                    <button id="letra-o" class="botonLetras">O</button>
+                    <button id="letra-p" class="botonLetras">P</button>
+                </div>
+                <div id="segundaLinea" class="flex justify-between">
+                    <button id="letra-a" class="botonLetras">A</button>
+                    <button id="letra-s" class="botonLetras">S</button>
+                    <button id="letra-d" class="botonLetras">D</button>
+                    <button id="letra-f" class="botonLetras">F</button>
+                    <button id="letra-g" class="botonLetras">G</button>
+                    <button id="letra-h" class="botonLetras">H</button>
+                    <button id="letra-j" class="botonLetras">J</button>
+                    <button id="letra-k" class="botonLetras">K</button>
+                    <button id="letra-l" class="botonLetras">L</button>
+                    <button id="letra-ñ" class="botonLetras">Ñ</button>
+                </div>
+                <div id="terceraLinea" class="flex justify-between">
+                    <button id="letra-Enter">Enter</button>
+                    <button id="letra-z" class="botonLetras">Z</button>
+                    <button id="letra-x" class="botonLetras">X</button>
+                    <button id="letra-c" class="botonLetras">C</button>
+                    <button id="letra-v" class="botonLetras">V</button>
+                    <button id="letra-b" class="botonLetras">B</button>
+                    <button id="letra-n" class="botonLetras">N</button>
+                    <button id="letra-m" class="botonLetras">M</button>
+                    <button id="letra-Backspace">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                            <path fill="var(--color-tone-1)" d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z"></path>
+                        </svg>
+                    </button>
+                </div>
+    
+            </section>
+
+        </div>
+        <script src="wordle.js" type="module"></script>
+    </body>
+</html>
